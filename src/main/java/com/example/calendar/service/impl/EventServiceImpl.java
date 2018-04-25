@@ -1,5 +1,6 @@
 package com.example.calendar.service.impl;
 
+import com.example.calendar.aop.Profiling;
 import com.example.calendar.dto.EventDataDto;
 import com.example.calendar.entities.EventEntity;
 import com.example.calendar.models.Event;
@@ -20,8 +21,9 @@ public class EventServiceImpl implements EventService {
 
     @Override
     @Transactional(readOnly = true)
+    @Profiling
     public Event getEvent(long id) {
-        EventEntity entity = repository.findOne(id);
+        EventEntity entity = repository.findById(id);
         return Event.builder()
                 .id(entity.getId())
                 .name(entity.getName())
@@ -33,6 +35,7 @@ public class EventServiceImpl implements EventService {
 
     @Override
     @Transactional
+    @Profiling
     public Event createEvent(EventDataDto event) {
         EventEntity entity = new EventEntity();
         entity.setCreated(LocalDateTime.now(Clock.systemUTC()));

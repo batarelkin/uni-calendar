@@ -17,6 +17,7 @@ dependencies {
     compileOnly "org.projectlombok:lombok:1.16.16"
     compile "org.springframework.boot:spring-boot-starter-web:1.5.10.RELEASE"
     compile "org.springframework.boot:spring-boot-starter-data-jpa:1.5.10.RELEASE"
+    compile "org.springframework.boot:spring-boot-starter-aop:1.5.10.RELEASE"
     compile "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.4"
 
     compile "com.h2database:h2:1.4.197"
